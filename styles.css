@@ -1,0 +1,676 @@
+/* Variables de Color */
+:root {
+    --color-principal: #c41e3a;
+    --color-secundario: #ffd700;
+    --color-fondo: #0a0a0a;
+    --color-texto: #ffffff;
+    --color-texto-gris: #cccccc;
+    --color-borde: #333333;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--color-principal) 0%, #1a1a1a 100%);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--color-secundario);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header p {
+    color: var(--color-secundario);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn-mode {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-secundario);
+    background-color: transparent;
+    color: var(--color-texto);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-mode:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    transform: translateY(-2px);
+}
+
+.btn-mode.active {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+/* Contenedor Principal */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Grid de Bitácoras */
+.grid-bitacoras {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.bitacora-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid var(--color-borde);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.bitacora-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-secundario);
+    box-shadow: 0 8px 12px rgba(196, 30, 58, 0.3);
+}
+
+.bitacora-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--color-borde);
+}
+
+.bitacora-contenido {
+    padding: 1.5rem;
+}
+
+.bitacora-titulo {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-secundario);
+    font-weight: bold;
+}
+
+.bitacora-tema {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.bitacora-preview {
+    color: var(--color-texto-gris);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.btn-leer {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-leer:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+/* Vista Detallada */
+.vista-detallada {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.vista-detallada.hidden {
+    display: none;
+}
+
+.btn-volver {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.detalle-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.detalle-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 1rem;
+}
+
+.detalle-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-secundario);
+    margin-bottom: 0.5rem;
+}
+
+.tema-badge {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.detalle-media {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.detalle-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 400px;
+}
+
+.detalle-media video,
+.detalle-media iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.detalle-contenido {
+    margin: 2rem 0;
+    line-height: 1.8;
+    color: var(--color-texto-gris);
+    font-size: 1.05rem;
+}
+
+.detalle-enlaces {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--color-borde);
+}
+
+.detalle-enlaces h3 {
+    color: var(--color-secundario);
+    margin-bottom: 1rem;
+}
+
+.detalle-enlaces a {
+    display: block;
+    color: var(--color-principal);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.detalle-enlaces a:hover {
+    color: var(--color-secundario);
+    text-decoration: underline;
+}
+
+/* Modal de Contraseña */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: var(--color-secundario);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: var(--color-texto-gris);
+    margin-bottom: 1.5rem;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: #0a0a0a;
+    color: var(--color-texto);
+    font-size: 1rem;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.modal-buttons button:first-child {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.modal-buttons button:first-child:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.modal-buttons button:last-child {
+    background-color: var(--color-borde);
+    color: var(--color-texto);
+}
+
+.modal-buttons button:last-child:hover {
+    background-color: var(--color-texto-gris);
+}
+
+/* Modo Editor */
+.modo-editor {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+}
+
+.modo-editor.hidden {
+    display: none;
+}
+
+.editor-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.editor-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+.editor-toolbar h2 {
+    color: var(--color-secundario);
+}
+
+.btn-salir {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-salir:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.editor-colores {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.color-picker label {
+    color: var(--color-texto-gris);
+    font-weight: 500;
+}
+
+.color-picker input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-secundario);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: #0a0a0a;
+    color: var(--color-texto);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+}
+
+.editor-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-guardar,
+.btn-copilot {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-guardar {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.btn-guardar:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.btn-copilot {
+    background-color: #555555;
+    color: white;
+}
+
+.btn-copilot:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.copilot-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.shortcut-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-shortcut {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: var(--color-borde);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-shortcut:hover {
+    background-color: var(--color-principal);
+    border-color: var(--color-secundario);
+}
+
+/* Panel del Copilot */
+.copilot-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: 500px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid var(--color-secundario);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.copilot-panel.hidden {
+    display: none;
+}
+
+.copilot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+.copilot-header h3 {
+    color: var(--color-secundario);
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--color-secundario);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--color-principal);
+}
+
+.copilot-chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.copilot-message {
+    padding: 0.75rem;
+    border-radius: 8px;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.copilot-message.user {
+    align-self: flex-end;
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.copilot-message.assistant {
+    align-self: flex-start;
+    background-color: var(--color-borde);
+    color: var(--color-texto);
+}
+
+.copilot-input-area {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 2px solid var(--color-borde);
+}
+
+.copilot-input-area input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: #0a0a0a;
+    color: var(--color-texto);
+}
+
+.copilot-input-area input:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+}
+
+.copilot-input-area button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.copilot-input-area button:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .grid-bitacoras {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-colores {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .copilot-shortcuts {
+        grid-template-columns: 1fr;
+    }
+
+    .copilot-panel {
+        width: calc(100% - 40px);
+        height: 400px;
+    }
+
+    .detalle-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Modo Lector */
+.modo-lector {
+    min-height: calc(100vh - 200px);
+}
+
+.modo-lector.hidden {
+    display: none;
+}

@@ -7,277 +7,314 @@ const PASSWORD_EDITOR = "081624";
 const bitacorasIniciales = [
     {
         id: 1,
-        titulo: "Jorge Luis Borges - El cuento y el infinito",
-        tema: "Jorge Luis Borges",
-        fecha: "2024-09-01",
-        contenido: "Análisis de cómo Borges utiliza los laberintos y el infinito en sus cuentos para explorar la naturaleza de la realidad y la identidad personal.",
-        imagen: "https://images.unsplash.com/photo-150784272343-583f20270319?w=400",
-        video: "",
-        audio: "",
-        enlaces: ""
+        titulo: "Jorge Luis Borges",
+        tema: "El cuento y el infinito",
+        contenido: `Jorge Luis Borges (1899-1986) fue uno de los escritores más influyentes del siglo XX. Su obra se caracteriza por la exploración de temas filosóficos a través de historias breves y densas.
+
+Características principales de su obra:
+• La metaficción: Sus cuentos juegan con la naturaleza de la realidad y la ficción
+• El infinito: Concepto recurrente que aparece en muchas de sus historias
+• Bibliotecas y laberintos: Símbolos de la complejidad del conocimiento
+• La técnica narrativa: Estructura innovadora y lenguaje preciso
+
+Obras destacadas:
+- "Ficciones" (1944): Colección de relatos que revolucionó la literatura
+- "El Aleph" (1949): Historias sobre la percepción y la realidad
+- "El jardín de senderos que se bifurcan": Cuento sobre el tiempo y la probabilidad`,
+        imagen: "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=300&fit=crop",
+        enlaces: ["https://es.wikipedia.org/wiki/Jorge_Luis_Borges"]
     },
     {
         id: 2,
-        titulo: "Alfonsina Storni - Feminismo y poesía",
-        tema: "Alfonsina Storni",
-        fecha: "2024-09-08",
-        contenido: "Exploración de la voz lírica femenina en la poesía de Storni y su crítica a las normas sociales a través de una estética innovadora.",
-        imagen: "https://images.unsplash.com/photo-1507842872343-583f20270319?w=400",
-        video: "",
-        audio: "",
-        enlaces: ""
+        titulo: "Alfonsina Storni",
+        tema: "Feminismo y poesía",
+        contenido: `Alfonsina Storni (1892-1938) fue una de las primeras poetisas feministas de América Latina. Su obra combina la expresión personal con la reivindicación de los derechos de la mujer.
+
+Características de su poesía:
+• Voz femenina auténtica: Expresión de sentimientos personales y políticos
+• Crítica social: Cuestionamiento del rol tradicional de la mujer
+• Sensibilidad lírica: Lenguaje poético y emotivo
+• Modernismo y post-modernismo: Evolución de su estilo
+
+Libros principales:
+- "El dulce daño" (1911): Primeras composiciones poéticas
+- "Irremediablemente" (1919): Madurez poética y conciencia social`,
+        imagen: "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=300&fit=crop",
+        enlaces: ["https://es.wikipedia.org/wiki/Alfonsina_Storni"]
     },
     {
         id: 3,
-        titulo: "Julio Cortázar - La novela experimental",
-        tema: "Julio Cortázar",
-        fecha: "2024-09-15",
-        contenido: "Análisis de 'Rayuela' y la ruptura con la narrativa tradicional. Estudio de cómo Cortázar revoluciona la forma de contar historias.",
-        imagen: "https://images.unsplash.com/photo-1507842872343-583f20270319?w=400",
-        video: "",
-        audio: "",
-        enlaces: ""
+        titulo: "Julio Cortázar",
+        tema: "La novela experimental",
+        contenido: `Julio Cortázar (1914-1984) revolucionó la novela moderna con su enfoque experimental y su combinación de lo fantástico con lo cotidiano.
+
+Características de su obra:
+• Estructura no lineal: Desafío a la narrativa tradicional
+• Lo fantástico en lo cotidiano: Ruptura de la realidad en situaciones ordinarias
+• Juego narrativo: Interacción con el lector
+• Innovación técnica: Uso de formas narrativas inusuales
+
+Obras principales:
+- "Rayuela" (1963): Novela revolucionaria que puede leerse de múltiples formas
+- "Bestiario" (1951): Cuentos de lo fantástico
+- "Las armas secretas" (1959): Narraciones breves y densas`,
+        imagen: "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=300&fit=crop",
+        enlaces: ["https://es.wikipedia.org/wiki/Julio_Cortázar"]
     },
     {
         id: 4,
-        titulo: "Macedonio Fernández - La metaficción",
-        tema: "Macedonio Fernández",
-        fecha: "2024-09-22",
-        contenido: "Estudio de la metaficción en la obra de Macedonio Fernández y su influencia en la literatura experimental argentina.",
-        imagen: "https://images.unsplash.com/photo-1507842872343-583f20270319?w=400",
-        video: "",
-        audio: "",
-        enlaces: ""
+        titulo: "Macedonio Fernández",
+        tema: "La metaficción",
+        contenido: `Macedonio Fernández (1874-1952) fue un precursor de la metaficción y la literatura experimental, anticipando muchas innovaciones.
+
+Características principales:
+• Metaficción: Reflexión sobre la naturaleza de la ficción dentro de la misma obra
+• Rechazo de convenciones: Desafío a las normas literarias establecidas
+• Filosofía narrativa: Integración de ideas filosóficas en la literatura
+• Humor y absurdo: Uso de elementos cómicos para profundizar en temas serios
+
+Obras destacadas:
+- "Museo de la Novela de la Eterna": Su obra maestra, experimental y fragmentaria
+- "Adriana Buenos Aires": Novela sobre la identidad y la realidad`,
+        imagen: "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=300&fit=crop",
+        enlaces: ["https://es.wikipedia.org/wiki/Macedonio_Fernández"]
     },
     {
         id: 5,
-        titulo: "Haroldo Conti - La narrativa moderna",
-        tema: "Haroldo Conti",
-        fecha: "2024-09-29",
-        contenido: "Análisis de la propuesta narrativa moderna de Conti y su búsqueda de nuevas formas de expresión en la prosa argentina.",
-        imagen: "https://images.unsplash.com/photo-1507842872343-583f20270319?w=400",
-        video: "",
-        audio: "",
-        enlaces: ""
+        titulo: "Haroldo Conti",
+        tema: "La narrativa moderna",
+        contenido: `Haroldo Conti (1925-1976) fue un escritor argentino que exploró nuevas formas narrativas y la experimentación con el lenguaje.
+
+Características de su escritura:
+• Experimentación formal: Ruptura con estructuras narrativas tradicionales
+• Introspección psicológica: Exploración de la mente del personaje
+• Lenguaje poético: Uso lírico del lenguaje en la prosa
+• Temas existenciales: Búsqueda de sentido e identidad
+
+Obras principales:
+- "Sudeste" (1962): Novela que mezcla viaje y reflexión
+- "Alrededor de la jaula" (1967): Reflexión sobre la libertad y el confinamiento`,
+        imagen: "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=300&fit=crop",
+        enlaces: ["https://es.wikipedia.org/wiki/Haroldo_Conti"]
     },
     {
         id: 6,
-        titulo: "Leopoldo Lugones - La estética modernista",
-        tema: "Leopoldo Lugones",
-        fecha: "2024-10-06",
-        contenido: "Exploración de la estética modernista en la obra de Lugones y su contribución a la literatura argentina de principios del siglo XX.",
-        imagen: "https://images.unsplash.com/photo-1507842872343-583f20270319?w=400",
-        video: "",
-        audio: "",
-        enlaces: ""
+        titulo: "Leopoldo Lugones",
+        tema: "La estética modernista",
+        contenido: `Leopoldo Lugones (1874-1938) fue un poeta y escritor argentino fundamental en la introducción del modernismo en América Latina.
+
+Características de su obra:
+• Modernismo poético: Influencia del simbolismo francés
+• Innovación técnica: Experimentación con formas y métodos narrativos
+• Sensibilidad estética: Énfasis en la belleza y la forma
+• Temática variada: Desde la política hasta la filosofía
+
+Obras principales:
+- "Las montañas del oro" (1897): Poemario que marca su madurez poética
+- "Lunario sentimental" (1909): Colección de versos sobre la luna`,
+        imagen: "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=300&fit=crop",
+        enlaces: ["https://es.wikipedia.org/wiki/Leopoldo_Lugones"]
     }
 ];
 
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', function() {
     cargarBitacoras();
-    inicializarEventos();
-    aplicarColoresGuardados();
+    cargarColoresSesion();
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            cerrarModal();
+        }
+    });
 });
 
-// Cargar bitácoras desde Firebase o usar las iniciales
-async function cargarBitacoras() {
-    try {
-        const snapshot = await db.collection(COLECCION_BITACORAS).get();
-        if (snapshot.empty) {
-            // Si no hay bitácoras, crear las iniciales
-            bitacoras = [...bitacorasIniciales];
-            guardarBitacorasEnFirebase();
-        } else {
-            bitacoras = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
+// Cargar y mostrar bitácoras en el grid
+function cargarBitacoras() {
+    const gridBitacoras = document.getElementById('gridBitacoras');
+    gridBitacoras.innerHTML = '';
+    
+    bitacoras = [...bitacorasIniciales];
+    
+    // Cargar datos guardados desde localStorage
+    bitacoras.forEach(bitacora => {
+        const bitacoraGuardada = localStorage.getItem(`bitacora_${bitacora.id}`);
+        if (bitacoraGuardada) {
+            const datos = JSON.parse(bitacoraGuardada);
+            Object.assign(bitacora, datos);
         }
-        mostrarBitacoras();
-    } catch (error) {
-        console.error("Error cargando bitácoras:", error);
-        // Usar bitácoras iniciales si hay error con Firebase
-        bitacoras = [...bitacorasIniciales];
-        mostrarBitacoras();
-    }
-}
-
-// Guardar bitácoras en Firebase
-async function guardarBitacorasEnFirebase() {
-    try {
-        for (const bitacora of bitacoras) {
-            await db.collection(COLECCION_BITACORAS).doc(bitacora.id.toString()).set(bitacora);
-        }
-    } catch (error) {
-        console.error("Error guardando en Firebase:", error);
-    }
-}
-
-// Mostrar bitácoras en modo lector
-function mostrarBitacoras() {
-    const grid = document.getElementById('bitacorasGrid');
-    grid.innerHTML = '';
-
+    });
+    
     bitacoras.forEach(bitacora => {
         const card = document.createElement('div');
         card.className = 'bitacora-card';
         card.innerHTML = `
-            ${bitacora.imagen ? `<img src="${bitacora.imagen}" alt="${bitacora.titulo}" class="bitacora-image" onerror="this.src='https://via.placeholder.com/400x200?text=Sin+imagen'">` : ''}
-            <div class="bitacora-content">
-                <h3>${bitacora.titulo}</h3>
-                <p class="bitacora-tema">📚 ${bitacora.tema}</p>
-                <p class="bitacora-fecha">📅 ${new Date(bitacora.fecha).toLocaleDateString('es-AR')}</p>
-                <p class="bitacora-text">${bitacora.contenido}</p>
-                <div class="bitacora-media">
-                    ${bitacora.video ? `<button onclick="abrirEnPestana('${bitacora.video}')">▶️ Ver video</button>` : ''}
-                    ${bitacora.audio ? `<button onclick="abrirEnPestana('${bitacora.audio}')">🎵 Escuchar audio</button>` : ''}
-                    ${bitacora.enlaces ? `<button onclick="mostrarEnlaces('${bitacora.id}')">🔗 Enlaces</button>` : ''}
-                </div>
+            <img src="${bitacora.imagen}" alt="${bitacora.titulo}" class="bitacora-imagen">
+            <div class="bitacora-contenido">
+                <h3 class="bitacora-titulo">${bitacora.titulo}</h3>
+                <span class="bitacora-tema">${bitacora.tema}</span>
+                <p class="bitacora-preview">${bitacora.contenido.substring(0, 150)}...</p>
+                <button class="btn-leer" onclick="verDetalles(${bitacora.id})">Leer Completo</button>
             </div>
         `;
-        grid.appendChild(card);
+        gridBitacoras.appendChild(card);
     });
-}
 
-// Mostrar bitácoras en modo editor
-function mostrarBitacorasEditar() {
-    const container = document.getElementById('bitacorasEditar');
-    container.innerHTML = '';
-
+    // Llenar select del editor
+    const selectBitacora = document.getElementById('selectBitacora');
+    selectBitacora.innerHTML = '<option value="">-- Selecciona una bitácora --</option>';
     bitacoras.forEach(bitacora => {
-        const item = document.createElement('div');
-        item.className = 'bitacora-edit-item';
-        item.innerHTML = `
-            <div class="bitacora-edit-info">
-                <h4>${bitacora.titulo}</h4>
-                <p>${bitacora.tema}</p>
-            </div>
-            <button class="btn-edit" onclick="abrirEditarBitacora(${bitacora.id})">✏️ Editar</button>
-        `;
-        container.appendChild(item);
+        const option = document.createElement('option');
+        option.value = bitacora.id;
+        option.textContent = bitacora.titulo;
+        selectBitacora.appendChild(option);
     });
 }
 
-// Inicializar eventos
-function inicializarEventos() {
-    // Botón acceder editor
-    document.getElementById('btnEditor').addEventListener('click', function() {
-        document.getElementById('modalPassword').classList.remove('hidden');
-    });
+// Ver detalles completos de una bitácora
+function verDetalles(id) {
+    const bitacora = bitacoras.find(b => b.id === id);
+    if (!bitacora) return;
 
-    // Botón confirmar contraseña
-    document.getElementById('btnConfirmPassword').addEventListener('click', function() {
-        const password = document.getElementById('passwordInput').value;
-        if (password === PASSWORD_EDITOR) {
-            document.getElementById('modalPassword').classList.add('hidden');
-            document.getElementById('modoLector').classList.add('hidden');
-            document.getElementById('modoEditor').classList.remove('hidden');
-            mostrarBitacorasEditar();
-            document.getElementById('passwordInput').value = '';
-        } else {
-            alert('Contraseña incorrecta');
-        }
-    });
+    document.getElementById('modoLector').classList.add('hidden');
+    document.getElementById('vistaDetallada').classList.remove('hidden');
 
-    // Botón cancelar modal
-    document.getElementById('btnCancelPassword').addEventListener('click', function() {
-        document.getElementById('modalPassword').classList.add('hidden');
-        document.getElementById('passwordInput').value = '';
-    });
+    document.getElementById('detalleTitle').textContent = bitacora.titulo;
+    document.getElementById('detalleTema').textContent = bitacora.tema;
+    
+    const mediaDiv = document.getElementById('detalleMedia');
+    mediaDiv.innerHTML = '';
+    
+    if (bitacora.imagen) {
+        const img = document.createElement('img');
+        img.src = bitacora.imagen;
+        img.alt = bitacora.titulo;
+        mediaDiv.appendChild(img);
+    }
 
-    // Enter en campo contraseña
-    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            document.getElementById('btnConfirmPassword').click();
-        }
-    });
+    document.getElementById('detalleContenido').innerHTML = bitacora.contenido.replace(/\n/g, '<br>');
 
-    // Botón salir del editor
-    document.getElementById('btnSalir').addEventListener('click', function() {
+    const enlacesDiv = document.getElementById('detalleEnlaces');
+    if (bitacora.enlaces && bitacora.enlaces.length > 0) {
+        enlacesDiv.innerHTML = '<h3>🔗 Enlaces Adicionales</h3>';
+        const ul = document.createElement('div');
+        bitacora.enlaces.forEach(enlace => {
+            const a = document.createElement('a');
+            a.href = enlace;
+            a.textContent = enlace;
+            a.target = '_blank';
+            ul.appendChild(a);
+        });
+        enlacesDiv.appendChild(ul);
+    }
+
+    window.scrollTo(0, 0);
+}
+
+// Volver al grid
+function volverAlGrid() {
+    document.getElementById('vistaDetallada').classList.add('hidden');
+    document.getElementById('modoLector').classList.remove('hidden');
+    window.scrollTo(0, 0);
+}
+
+// Cambiar modo
+function cambiarModo(modo) {
+    document.getElementById('btnLector').classList.toggle('active', modo === 'lector');
+    document.getElementById('btnEditor').classList.toggle('active', modo === 'editor');
+    
+    if (modo === 'lector') {
         document.getElementById('modoEditor').classList.add('hidden');
         document.getElementById('modoLector').classList.remove('hidden');
-    });
-
-    // Botón guardar bitácora
-    document.getElementById('btnGuardarBitacora').addEventListener('click', guardarBitacora);
-
-    // Botón cancelar edición
-    document.getElementById('btnCancelEdit').addEventListener('click', cerrarModalEditarBitacora);
-
-    // Botón cerrar modal
-    document.getElementById('btnCerrarModal').addEventListener('click', cerrarModalEditarBitacora);
-
-    // Cambio de colores
-    document.getElementById('colorPrincipal').addEventListener('change', aplicarColores);
-    document.getElementById('colorSecundario').addEventListener('change', aplicarColores);
-    document.getElementById('colorFondo').addEventListener('change', aplicarColores);
-
-    // Botón Copilot para colores
-    document.getElementById('btnCopilotColores').addEventListener('click', abrirCopilotColores);
-
-    // Cerrar Copilot
-    document.getElementById('btnCerrarCopilot').addEventListener('click', cerrarCopilot);
-
-    // Enviar mensaje Copilot
-    document.getElementById('btnEnviarCopilot').addEventListener('click', enviarMensajeCopilot);
-
-    document.getElementById('copilotInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            enviarMensajeCopilot();
-        }
-    });
-}
-
-// Abrir modal para editar bitácora
-function abrirEditarBitacora(id) {
-    bitacoraEditando = bitacoras.find(b => b.id == id);
-    if (bitacoraEditando) {
-        document.getElementById('editTitulo').value = bitacoraEditando.titulo;
-        document.getElementById('editTema').value = bitacoraEditando.tema;
-        document.getElementById('editFecha').value = bitacoraEditando.fecha;
-        document.getElementById('editContenido').value = bitacoraEditando.contenido;
-        document.getElementById('editImagen').value = bitacoraEditando.imagen || '';
-        document.getElementById('editVideo').value = bitacoraEditando.video || '';
-        document.getElementById('editAudio').value = bitacoraEditando.audio || '';
-        document.getElementById('editEnlaces').value = bitacoraEditando.enlaces || '';
-        document.getElementById('modalEditBitacora').classList.remove('hidden');
+        document.getElementById('vistaDetallada').classList.add('hidden');
     }
 }
 
-// Cerrar modal de editar bitácora
-function cerrarModalEditarBitacora() {
-    document.getElementById('modalEditBitacora').classList.add('hidden');
+// Abrir editor
+function abrirEditor() {
+    document.getElementById('passwordModal').classList.remove('hidden');
+    document.getElementById('passwordInput').focus();
+}
+
+// Verificar contraseña
+function verificarContraseña() {
+    const password = document.getElementById('passwordInput').value;
+    if (password === PASSWORD_EDITOR) {
+        cerrarModal();
+        cambiarModo('editor');
+        document.getElementById('modoLector').classList.add('hidden');
+        document.getElementById('modoEditor').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    } else {
+        alert('Contraseña incorrecta');
+        document.getElementById('passwordInput').value = '';
+    }
+}
+
+// Cerrar modal
+function cerrarModal() {
+    document.getElementById('passwordModal').classList.add('hidden');
+    document.getElementById('passwordInput').value = '';
+}
+
+// Salir del editor
+function salirEditor() {
+    cambiarModo('lector');
+    document.getElementById('modoEditor').classList.add('hidden');
+    document.getElementById('modoLector').classList.remove('hidden');
     bitacoraEditando = null;
+    document.getElementById('editForm').reset();
+    window.scrollTo(0, 0);
 }
 
-// Guardar bitácora editada
-async function guardarBitacora() {
-    if (!bitacoraEditando) return;
+// Cargar bitácora seleccionada
+function cargarBitacora() {
+    const id = parseInt(document.getElementById('selectBitacora').value);
+    if (!id) return;
 
-    bitacoraEditando.titulo = document.getElementById('editTitulo').value;
-    bitacoraEditando.tema = document.getElementById('editTema').value;
-    bitacoraEditando.fecha = document.getElementById('editFecha').value;
-    bitacoraEditando.contenido = document.getElementById('editContenido').value;
-    bitacoraEditando.imagen = document.getElementById('editImagen').value;
-    bitacoraEditando.video = document.getElementById('editVideo').value;
-    bitacoraEditando.audio = document.getElementById('editAudio').value;
-    bitacoraEditando.enlaces = document.getElementById('editEnlaces').value;
+    const bitacora = bitacoras.find(b => b.id === id);
+    if (!bitacora) return;
 
-    try {
-        await db.collection(COLECCION_BITACORAS).doc(bitacoraEditando.id.toString()).set(bitacoraEditando);
-        cerrarModalEditarBitacora();
-        mostrarBitacorasEditar();
-        mostrarBitacoras();
-        alert('Bitácora guardada exitosamente');
-    } catch (error) {
-        console.error('Error guardando:', error);
-        alert('Error al guardar la bitácora');
+    bitacoraEditando = bitacora;
+    document.getElementById('editTitulo').value = bitacora.titulo;
+    document.getElementById('editTema').value = bitacora.tema;
+    document.getElementById('editContenido').value = bitacora.contenido;
+    document.getElementById('editMedia').value = bitacora.imagen;
+    document.getElementById('editEnlaces').value = bitacora.enlaces.join('\n');
+}
+
+// Guardar bitácora
+function guardarBitacora() {
+    if (!bitacoraEditando) {
+        alert('Por favor selecciona una bitácora');
+        return;
     }
+
+    const titulo = document.getElementById('editTitulo').value.trim();
+    const tema = document.getElementById('editTema').value.trim();
+    const contenido = document.getElementById('editContenido').value.trim();
+    const imagen = document.getElementById('editMedia').value.trim();
+    const enlaces = document.getElementById('editEnlaces').value.trim().split('\n').filter(e => e.trim());
+
+    if (!titulo || !tema || !contenido) {
+        alert('Por favor completa todos los campos obligatorios');
+        return;
+    }
+
+    bitacoraEditando.titulo = titulo;
+    bitacoraEditando.tema = tema;
+    bitacoraEditando.contenido = contenido;
+    if (imagen) bitacoraEditando.imagen = imagen;
+    bitacoraEditando.enlaces = enlaces;
+
+    localStorage.setItem(`bitacora_${bitacoraEditando.id}`, JSON.stringify(bitacoraEditando));
+
+    alert('✅ Bitácora guardada correctamente');
+    cargarBitacoras();
 }
 
-// Aplicar colores personalizados
-function aplicarColores() {
+// Actualizar colores
+function actualizarColores() {
     const colorPrincipal = document.getElementById('colorPrincipal').value;
     const colorSecundario = document.getElementById('colorSecundario').value;
     const colorFondo = document.getElementById('colorFondo').value;
@@ -286,66 +323,27 @@ function aplicarColores() {
     document.documentElement.style.setProperty('--color-secundario', colorSecundario);
     document.documentElement.style.setProperty('--color-fondo', colorFondo);
 
-    // Guardar en localStorage
-    localStorage.setItem('colorPrincipal', colorPrincipal);
-    localStorage.setItem('colorSecundario', colorSecundario);
-    localStorage.setItem('colorFondo', colorFondo);
+    localStorage.setItem('tema_colores', JSON.stringify({
+        colorPrincipal,
+        colorSecundario,
+        colorFondo
+    }));
 }
 
-// Aplicar colores guardados
-function aplicarColoresGuardados() {
-    const colorPrincipal = localStorage.getItem('colorPrincipal') || '#1a1a1a';
-    const colorSecundario = localStorage.getItem('colorSecundario') || '#d4af37';
-    const colorFondo = localStorage.getItem('colorFondo') || '#f5f5f5';
-
-    document.getElementById('colorPrincipal').value = colorPrincipal;
-    document.getElementById('colorSecundario').value = colorSecundario;
-    document.getElementById('colorFondo').value = colorFondo;
-
-    aplicarColores();
-}
-
-// Funciones auxiliares
-function abrirEnPestana(url) {
-    window.open(url, '_blank');
-}
-
-function mostrarEnlaces(bitacoraId) {
-    const bitacora = bitacoras.find(b => b.id == bitacoraId);
-    if (bitacora && bitacora.enlaces) {
-        alert(bitacora.enlaces);
+// Cargar colores guardados
+function cargarColoresSesion() {
+    const coloresSesion = localStorage.getItem('tema_colores');
+    if (coloresSesion) {
+        const colores = JSON.parse(coloresSesion);
+        document.getElementById('colorPrincipal').value = colores.colorPrincipal;
+        document.getElementById('colorSecundario').value = colores.colorSecundario;
+        document.getElementById('colorFondo').value = colores.colorFondo;
+        actualizarColores();
     }
 }
 
-function abrirCopilotColores() {
+// Abrir panel del Copilot
+function abrirCopilot() {
     document.getElementById('copilotPanel').classList.remove('hidden');
-    agregarMensajeCopilot('assistant', 'Hola! Soy tu asistente Claude. Puedo ayudarte a elegir colores para tu bitácora. ¿Qué tipo de paleta prefieres? (Ejemplo: profesional, elegante, moderna, colorida, etc.)');
-}
-
-function cerrarCopilot() {
-    document.getElementById('copilotPanel').classList.add('hidden');
-}
-
-function agregarMensajeCopilot(tipo, mensaje) {
-    const chat = document.getElementById('copilotChat');
-    const div = document.createElement('div');
-    div.className = `copilot-message ${tipo}`;
-    div.textContent = mensaje;
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
-}
-
-function enviarMensajeCopilot() {
-    const input = document.getElementById('copilotInput');
-    const mensaje = input.value.trim();
-    
-    if (!mensaje) return;
-
-    agregarMensajeCopilot('user', mensaje);
-    input.value = '';
-
-    // Simular respuesta (en producción llamaría a la API de Claude)
-    setTimeout(() => {
-        agregarMensajeCopilot('assistant', 'Gracias por tu pregunta. Puedo ayudarte a personalizar los colores. En el modo lector, presiona el botón "Acceso Editor" para ingresar (contraseña: 081624) y luego personaliza los colores según tu preferencia.');
-    }, 500);
+    document.getElementById('copilotInput').focus();
 }

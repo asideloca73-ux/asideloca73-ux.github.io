@@ -1,20 +1,17 @@
 // Configuración de Firebase
-// ⚠️ IMPORTANTE: Reemplaza estos valores con tu propia configuración de Firebase
-
+// IMPORTANTE: Reemplaza estos valores con tu configuración real de Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyDemoAPIKey1234567890", // Reemplazar con tu API Key
-    authDomain: "bitacorarg-demo.firebaseapp.com", // Reemplazar
-    projectId: "bitacorarg-demo", // Reemplazar
-    storageBucket: "bitacorarg-demo.appspot.com", // Reemplazar
-    messagingSenderId: "123456789", // Reemplazar
-    appId: "1:123456789:web:abcdef1234567890" // Reemplazar
+    apiKey: "YOUR_API_KEY_HERE",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project.appspot.com",
+    messagingSenderId: "your-messaging-sender-id",
+    appId: "your-app-id"
 };
 
-// Inicializar Firebase
-firebase.initializeApp(firebaseConfig);
-
-// Obtener referencia a Firestore
-const db = firebase.firestore();
-
-// Colección donde se guardarán las bitácoras
-const COLECCION_BITACORAS = "bitacoras";
+// Nota: Para uso local sin Firebase, la aplicación funcionará con localStorage
+// Si deseas usar Firebase en producción:
+// 1. Ve a https://console.firebase.google.com/
+// 2. Crea un nuevo proyecto
+// 3. Obtén tu configuración desde Project Settings
+// 4. Reemplaza los valores arriba
