@@ -1,232 +1,175 @@
-// Integración con Claude API
-// Este archivo maneja la comunicación con Claude para asistencia en la edición
+// Sistema de Copilot (Asistente de IA)
+// Este archivo maneja la interacción con el panel del Copilot
 
-const CLAUDE_API_KEY = "YOUR_CLAUDE_API_KEY"; // Reemplazar con tu API Key
-const CLAUDE_API_URL = "https://api.anthropic.com/v1/messages";
+class CopilotAssistant {
+    constructor() {
+        this.conversacion = [];
+        this.inicializar();
+    }
 
-// Función para enviar mensaje a Claude
-async function enviarMensajeCopilot() {
-    const input = document.getElementById('copilotInput');
-    const mensaje = input.value.trim();
-    
-    if (!mensaje) return;
+    inicializar() {
+        const btnEnviar = document.getElementById('btnEnviarCopilot');
+        const inputCopilot = document.getElementById('copilotInput');
 
-    agregarMensajeCopilot('user', mensaje);
-    input.value = '';
-
-    // Mostrar indicador de carga
-    agregarMensajeCopilot('assistant', '⏳ Claude está pensando...');
-
-    try {
-        const respuesta = await llamarClaudeAPI(mensaje);
-        
-        // Remover mensaje de carga
-        const chat = document.getElementById('copilotChat');
-        const ultimoMensaje = chat.lastChild;
-        if (ultimoMensaje && ultimoMensaje.textContent.includes('⏳')) {
-            ultimoMensaje.remove();
+        if (btnEnviar) {
+            btnEnviar.addEventListener('click', () => this.enviarMensaje());
         }
-        
-        agregarMensajeCopilot('assistant', respuesta);
-    } catch (error) {
-        console.error('Error llamando a Claude:', error);
-        
-        // Remover mensaje de carga
-        const chat = document.getElementById('copilotChat');
-        const ultimoMensaje = chat.lastChild;
-        if (ultimoMensaje && ultimoMensaje.textContent.includes('⏳')) {
-            ultimoMensaje.remove();
+
+        if (inputCopilot) {
+            inputCopilot.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.enviarMensaje();
+                }
+            });
         }
-        
-        // Respuesta de fallback
-        agregarMensajeCopilot('assistant', 'Lo siento, tuve un problema conectándome con Claude. Por favor, verifica tu API Key en el archivo copilot.js');
+    }
+
+    agregarMensaje(tipo, mensaje) {
+        const chatDiv = document.getElementById('copilotChat');
+        if (!chatDiv) return;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `copilot-message ${tipo}`;
+        msgDiv.textContent = mensaje;
+        chatDiv.appendChild(msgDiv);
+        chatDiv.scrollTop = chatDiv.scrollHeight;
+
+        this.conversacion.push({ tipo, mensaje });
+    }
+
+    enviarMensaje() {
+        const input = document.getElementById('copilotInput');
+        if (!input) return;
+
+        const mensaje = input.value.trim();
+        if (!mensaje) return;
+
+        this.agregarMensaje('user', mensaje);
+        input.value = '';
+
+        // Simular respuesta del asistente
+        setTimeout(() => {
+            const respuesta = this.generarRespuesta(mensaje);
+            this.agregarMensaje('assistant', respuesta);
+        }, 500);
+    }
+
+    generarRespuesta(mensaje) {
+        const mensajeLower = mensaje.toLowerCase();
+
+        // Respuestas predefinidas para diferentes tipos de solicitudes
+        if (mensajeLower.includes('color') || mensajeLower.includes('paleta')) {
+            return this.sugerenciasColores();
+        } else if (mensajeLower.includes('redacción') || mensajeLower.includes('escribir')) {
+            return this.ayudaRedaccion();
+        } else if (mensajeLower.includes('corregir') || mensajeLower.includes('error')) {
+            return this.sugerenciasCorreccion();
+        } else if (mensajeLower.includes('expandir') || mensajeLower.includes('más')) {
+            return this.sugerenciasExpansion();
+        } else if (mensajeLower.includes('resumir') || mensajeLower.includes('resumen')) {
+            return this.sugerenciasResumen();
+        } else if (mensajeLower.includes('literatura') || mensajeLower.includes('autor')) {
+            return this.infoLiteratura();
+        } else if (mensajeLower.includes('ayuda') || mensajeLower.includes('help')) {
+            return this.mostrarAyuda();
+        } else {
+            return this.respuestaGeneral();
+        }
+    }
+
+    sugerenciasColores() {
+        return `🎨 Sugerencias de paletas de colores para tu bitácora:\n\n1. Elegante Clásica: Negro (#1a1a1a) + Dorado (#d4af37)\n2. Moderna: Gris (#333333) + Cian (#00bcd4)\n3. Literaria: Granate (#722f37) + Beige (#f5e6d3)\n4. Minimalista: Blanco (#ffffff) + Azul marino (#003366)\n5. Vibrante: Púrpura (#6f42c1) + Naranja (#ff9800)\n\n¿Cuál te parece que mejor refleja tu estilo?`;
+    }
+
+    ayudaRedaccion() {
+        return `✍️ Consejos para mejorar tu redacción:\n\n1. Sé claro y conciso: Evita palabras innecesarias\n2. Estructura: Introduce la idea → desarrolla → concluye\n3. Párrafos: Cada uno debe tener una idea principal\n4. Variedad: Alterna oraciones largas y cortas\n5. Activa la voz: Prefiere "El autor escribe" sobre "Fue escrito por"\n6. Evita repeticiones: Usa sinónimos cuando sea posible\n\n¿Hay algún párrafo específico que quieras mejorar?`;
+    }
+
+    sugerenciasCorreccion() {
+        return `✏️ Revisa estos puntos en tu texto:\n\n1. Ortografía: Usa una herramienta de corrección\n2. Gramática: Verifica concordancia de género y número\n3. Puntuación: Las comas separan ideas, no abuses\n4. Tildes: Revisa palabras esdrújulas y sobreesdrújulas\n5. Coherencia: ¿El texto tiene sentido de inicio a fin?\n6. Tono: ¿Mantiene un registro consistente?\n\nConsejo: Lee tu texto en voz alta para detectar errores.`;
+    }
+
+    sugerenciasExpansion() {
+        return `📖 Ideas para expandir tu contenido:\n\n1. Añade contexto histórico del tema\n2. Incluye citas o referencias bibliográficas\n3. Desarrolla ejemplos con más detalle\n4. Compara o contrasta con otros autores\n5. Analiza las implicaciones de las ideas\n6. Sugiere conexiones con obras relacionadas\n7. Incluye análisis crítico o personal\n\n¿Qué aspecto de tu bitácora deseas profundizar?`;
+    }
+
+    sugerenciasResumen() {
+        return `📋 Para crear un buen resumen:\n\n1. Identifica las ideas principales (no los detalles)\n2. Sé fiel al contenido original\n3. Mantén el mismo tono y perspectiva\n4. Elimina ejemplos innecesarios\n5. Reduce a 25-33% del original\n6. Verifica que fluya correctamente\n7. Revisa que no falte información esencial\n\nTip: Subraya lo importante, luego redacta basándote en eso.`;
+    }
+
+    infoLiteratura() {
+        return `📚 Información sobre Literatura Argentina:\n\nLos autores en tu bitácora son:\n• Jorge Luis Borges: Innovador del cuento moderno\n• Alfonsina Storni: Pionera del feminismo literario\n• Julio Cortázar: Revolucionario de la novela experimental\n• Macedonio Fernández: Precursor de la metaficción\n• Haroldo Conti: Explorador de nuevas narrativas\n• Leopoldo Lugones: Introductor del modernismo\n\n¿Deseas información sobre alguno específicamente?`;
+    }
+
+    mostrarAyuda() {
+        return `🤖 Puedo ayudarte con:\n\n📝 Redacción: Mejora y corrección de textos\n🎨 Colores: Sugerencias de paletas cromáticas\n📚 Literatura: Información sobre los autores\n💡 Ideas: Sugerencias para expandir contenido\n📋 Resúmenes: Síntesis de información\n🔍 Análisis: Ayuda con análisis literario\n✏️ Edición: Correcciones y mejoras\n\nEscribe tu pregunta o solicitud. ¡Estoy aquí para ayudarte!`;
+    }
+
+    respuestaGeneral() {
+        const respuestas = [
+            'Interesante pregunta. Para ayudarte mejor, podrías ser más específico sobre qué necesitas?',
+            '¿Puedes darme más detalles? Así podré brindarte una mejor respuesta.',
+            'Entiendo. ¿Hay algún aspecto particular de tu bitácora en el que pueda ayudarte?',
+            'Buena observación. Consideraré eso para mis sugerencias futuras.',
+            '¿Necesitas ayuda con redacción, colores, o análisis literario?'
+        ];
+        return respuestas[Math.floor(Math.random() * respuestas.length)];
     }
 }
 
-// Llamar a la API de Claude
-async function llamarClaudeAPI(mensajeUsuario) {
-    // Obtener contexto de la bitácora actual si está editando
-    let contexto = "";
-    if (bitacoraEditando) {
-        contexto = `Estoy editando esta bitácora:
-        Título: ${bitacoraEditando.titulo}
-        Tema: ${bitacoraEditando.tema}
-        Contenido: ${bitacoraEditando.contenido}
-        `;
-    }
-
-    const prompt = `${contexto}
-
-El usuario dice: ${mensajeUsuario}
-
-Responde de manera concisa y útil para ayudar con la edición de una bitácora académica sobre Literatura Argentina. 
-Si el usuario pide ayuda con colores, sugiere paletas de colores. 
-Si pide ayuda redactando, mejora el texto. 
-Si pide sugerencias de contenido, proporciona ideas relevantes para Literatura Argentina.`;
-
-    const body = {
-        model: "claude-3-5-sonnet-20241022",
-        max_tokens: 1024,
-        messages: [
-            {
-                role: "user",
-                content: prompt
-            }
-        ]
-    };
-
-    const response = await fetch(CLAUDE_API_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "x-api-key": CLAUDE_API_KEY,
-            "anthropic-version": "2023-06-01"
-        },
-        body: JSON.stringify(body)
-    });
-
-    if (!response.ok) {
-        throw new Error(`Error de API: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data.content[0].text;
-}
-
-// Funciones auxiliares para integración con Copilot
-
-// Ayuda con colores
-function abrirCopilotColores() {
+// Funciones para atajos de Copilot desde el editor
+function abrirCopilot() {
     document.getElementById('copilotPanel').classList.remove('hidden');
-    agregarMensajeCopilot('assistant', '🎨 ¡Hola! Soy Claude, tu asistente de diseño. Puedo ayudarte a elegir colores para tu bitácora.\n\nTe sugiero algunas opciones:\n\n📌 Elegante: Negro (#1a1a1a) + Dorado (#d4af37)\n📌 Moderno: Azul oscuro (#1e3a8a) + Cyan (#06b6d4)\n📌 Académico: Gris (#374151) + Verde (#10b981)\n📌 Clásico: Marrón (#92400e) + Crema (#fef3c7)\n\n¿Cuál te gusta o quieres una combinación personalizada?');
+    document.getElementById('copilotInput').focus();
 }
 
-// Ayuda para mejorar redacción
-function pedirAyudaRedaccion() {
-    const contenido = document.getElementById('editContenido').value;
-    if (!contenido) {
-        alert('Por favor, escribe algo primero');
-        return;
-    }
-    
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Mejora esta redacción: "${contenido}"`;
-    enviarMensajeCopilot();
-}
-
-// Ayuda para generar contenido sobre un tema
-function pedirIdeaContenido(tema) {
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Genera ideas para escribir una bitácora académica sobre ${tema} en Literatura Argentina`;
-    enviarMensajeCopilot();
-}
-
-// Ayuda para análisis de autor
-function pedirAnalisisAutor(autor) {
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Dame puntos clave para analizar la obra de ${autor} desde una perspectiva estética y sensorial`;
-    enviarMensajeCopilot();
-}
-
-// Corregir ortografía y gramática
-function corregirTexto() {
-    const contenido = document.getElementById('editContenido').value;
-    if (!contenido) {
-        alert('Por favor, escribe algo primero');
-        return;
-    }
-    
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Corrige los errores de ortografía y gramática en: "${contenido}"`;
-    enviarMensajeCopilot();
-}
-
-// Expandir idea
-function expandirIdea() {
-    const contenido = document.getElementById('editContenido').value;
-    if (!contenido) {
-        alert('Por favor, escribe algo primero');
-        return;
-    }
-    
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Expande esta idea académica con más detalles: "${contenido}"`;
-    enviarMensajeCopilot();
-}
-
-// Resumir texto
-function resumirTexto() {
-    const contenido = document.getElementById('editContenido').value;
-    if (!contenido) {
-        alert('Por favor, escribe algo primero');
-        return;
-    }
-    
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Resume en 2-3 líneas este análisis: "${contenido}"`;
-    enviarMensajeCopilot();
-}
-
-// Sugerir enlaces relevantes
-function sugerirEnlaces(autor) {
-    document.getElementById('copilotPanel').classList.remove('hidden');
-    document.getElementById('copilotInput').value = `Sugiere enlaces académicos relevantes sobre ${autor} y su obra en Literatura Argentina`;
-    enviarMensajeCopilot();
-}
-
-// Agregar mensaje al chat del Copilot
-function agregarMensajeCopilot(tipo, mensaje) {
-    const chat = document.getElementById('copilotChat');
-    const div = document.createElement('div');
-    div.className = `copilot-message ${tipo}`;
-    div.innerHTML = mensaje.replace(/\n/g, '<br>'); // Permitir saltos de línea
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
-}
-
-// Cerrar panel del Copilot
 function cerrarCopilot() {
     document.getElementById('copilotPanel').classList.add('hidden');
 }
 
-// Inicializar después de cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    // Agregar botones para atajos de Copilot
-    const btnCopilotColores = document.getElementById('btnCopilotColores');
-    if (btnCopilotColores) {
-        btnCopilotColores.addEventListener('click', abrirCopilotColores);
-    }
+function pedirAyudaRedaccion() {
+    abrirCopilot();
+    setTimeout(() => {
+        document.getElementById('copilotInput').value = 'Ayuda con redacción';
+        document.getElementById('btnEnviarCopilot').click();
+    }, 300);
+}
 
-    const btnCerrarCopilot = document.getElementById('btnCerrarCopilot');
-    if (btnCerrarCopilot) {
-        btnCerrarCopilot.addEventListener('click', cerrarCopilot);
-    }
+function corregirTexto() {
+    abrirCopilot();
+    setTimeout(() => {
+        document.getElementById('copilotInput').value = 'Corregir mi texto';
+        document.getElementById('btnEnviarCopilot').click();
+    }, 300);
+}
 
-    const btnEnviarCopilot = document.getElementById('btnEnviarCopilot');
-    if (btnEnviarCopilot) {
-        btnEnviarCopilot.addEventListener('click', enviarMensajeCopilot);
-    }
+function expandirIdea() {
+    abrirCopilot();
+    setTimeout(() => {
+        document.getElementById('copilotInput').value = 'Cómo expandir mi contenido';
+        document.getElementById('btnEnviarCopilot').click();
+    }, 300);
+}
 
-    // Enter para enviar mensaje
-    const copilotInput = document.getElementById('copilotInput');
-    if (copilotInput) {
-        copilotInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                enviarMensajeCopilot();
-            }
-        });
-    }
-});
+function resumirTexto() {
+    abrirCopilot();
+    setTimeout(() => {
+        document.getElementById('copilotInput').value = 'Resumir mi bitácora';
+        document.getElementById('btnEnviarCopilot').click();
+    }, 300);
+}
 
-// Exportar funciones para uso global
-window.copilotFunctions = {
-    abrirCopilotColores,
-    pedirAyudaRedaccion,
-    pedirIdeaContenido,
-    pedirAnalisisAutor,
-    corregirTexto,
-    expandirIdea,
-    resumirTexto,
-    sugerirEnlaces,
-    cerrarCopilot
-};
+function enviarMensajeCopilot() {
+    if (typeof copilot !== 'undefined') {
+        copilot.enviarMensaje();
+    }
+}
+
+// Inicializar Copilot cuando la página carga
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.copilot = new CopilotAssistant();
+    });
+} else {
+    window.copilot = new CopilotAssistant();
+}
