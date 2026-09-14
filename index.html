@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitacorarg - Literatura Argentina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- MODO LECTOR -->
+        <div id="modoLector" class="modo-activo">
+            <header class="header-reader">
+                <div class="header-content">
+                    <h1>Bitácora Estética y Sensorial de la Literatura Argentina</h1>
+                    <p class="subtitle">Cátedra: Literatura Argentina II</p>
+                    <p class="docente">Docente a cargo: Federico Barreira</p>
+                    <p class="alumna">Alumna: C Alejandra Gómez</p>
+                </div>
+                <button id="btnEditor" class="btn-editor">Acceso Editor</button>
+            </header>
+
+            <div class="bitacoras-container">
+                <div id="bitacorasGrid" class="bitacoras-grid">
+                    <!-- Las bitácoras se cargan aquí dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- MODO EDITOR -->
+        <div id="modoEditor" class="hidden">
+            <div class="editor-container">
+                <div class="editor-header">
+                    <h2>Panel de Editor - Bitacorarg</h2>
+                    <button id="btnSalir" class="btn-salir">← Volver a Lector</button>
+                </div>
+
+                <!-- Panel de Control -->
+                <div class="editor-panel">
+                    <div class="panel-section">
+                        <h3>🎨 Personalizar Colores</h3>
+                        <div class="color-controls">
+                            <div class="color-input-group">
+                                <label>Color Principal:</label>
+                                <input type="color" id="colorPrincipal" value="#1a1a1a">
+                            </div>
+                            <div class="color-input-group">
+                                <label>Color Secundario:</label>
+                                <input type="color" id="colorSecundario" value="#d4af37">
+                            </div>
+                            <div class="color-input-group">
+                                <label>Color de Fondo:</label>
+                                <input type="color" id="colorFondo" value="#f5f5f5">
+                            </div>
+                        </div>
+                        <button id="btnCopilotColores" class="btn-copilot">🤖 Ayuda del Copilot</button>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>📝 Editar Bitácoras</h3>
+                        <div id="bitacorasEditar" class="bitacoras-editar">
+                            <!-- Las bitácoras se cargan aquí para editar -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Copilot -->
+                <div id="copilotPanel" class="copilot-panel hidden">
+                    <div class="copilot-header">
+                        <h3>🤖 Claude Copilot</h3>
+                        <button id="btnCerrarCopilot" class="btn-close">✕</button>
+                    </div>
+                    <div id="copilotChat" class="copilot-chat"></div>
+                    <div class="copilot-input">
+                        <input type="text" id="copilotInput" placeholder="Pregunta al Copilot...">
+                        <button id="btnEnviarCopilot" class="btn-send">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para contraseña -->
+    <div id="modalPassword" class="modal hidden">
+        <div class="modal-content">
+            <h2>Acceso al Editor</h2>
+            <input type="password" id="passwordInput" placeholder="Ingresa la contraseña">
+            <div class="modal-buttons">
+                <button id="btnConfirmPassword" class="btn-primary">Acceder</button>
+                <button id="btnCancelPassword" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar bitácora -->
+    <div id="modalEditBitacora" class="modal hidden">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Editar Bitácora</h2>
+                <button id="btnCerrarModal" class="btn-close">✕</button>
+            </div>
+            <div class="form-edit">
+                <div class="form-group">
+                    <label>Título:</label>
+                    <input type="text" id="editTitulo" placeholder="Título de la bitácora">
+                </div>
+                <div class="form-group">
+                    <label>Tema/Autor:</label>
+                    <input type="text" id="editTema" placeholder="Tema o autor">
+                </div>
+                <div class="form-group">
+                    <label>Fecha:</label>
+                    <input type="date" id="editFecha">
+                </div>
+                <div class="form-group">
+                    <label>Contenido (Texto):</label>
+                    <textarea id="editContenido" placeholder="Escribe tu análisis..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>URL de Imagen:</label>
+                    <input type="text" id="editImagen" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>URL de Video (YouTube/Vimeo):</label>
+                    <input type="text" id="editVideo" placeholder="https://youtube.com/...">
+                </div>
+                <div class="form-group">
+                    <label>URL de Audio:</label>
+                    <input type="text" id="editAudio" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>Enlaces Adicionales:</label>
+                    <textarea id="editEnlaces" placeholder="Enlace 1: URL&#10;Enlace 2: URL"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button id="btnGuardarBitacora" class="btn-primary">Guardar</button>
+                    <button id="btnCancelEdit" class="btn-secondary">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+    
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="copilot.js"></script>
+</body>
+</html>
